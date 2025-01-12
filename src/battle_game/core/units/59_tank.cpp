@@ -157,10 +157,10 @@ bool wu_Tank::IsHit(glm::vec2 position) const {
 }
 
 const char *wu_Tank::UnitName() const {
-  return "Tiny Tank";
+  return "Wu Tank";
 }
 
 const char *wu_Tank::Author() const {
-  return "LazyJazz";
+  return "Xingyu Wu";
 }
 } 
