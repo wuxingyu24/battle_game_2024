@@ -224,7 +224,6 @@ void GameCore::PushEventDealDamage(uint32_t dst_unit_id,
       unit->SetHealth(unit->GetHealth() - damage / unit->GetMaxHealth());
       if (unit->GetHealth() <= 0.0f) {
         PushEventKillUnit(dst_unit_id, src_unit_id);
-        unit_2->SetHealth(1.0f);
       }
     }
   });
