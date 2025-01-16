@@ -33,6 +33,7 @@ void CannonBall::Update() {
   auto &units = game_core_->GetUnits();
   for (auto &unit : units) {
     if (unit.first == unit_id_) {
+      game_core_->PushEventDealDamage(unit.first, id_, damage_scale_ * 0.2f);
       continue;
     }
     if (unit.second->IsHit(position_)) {
