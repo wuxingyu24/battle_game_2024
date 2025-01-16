@@ -220,10 +220,13 @@ void GameCore::PushEventDealDamage(uint32_t dst_unit_id,
                                    float damage) {
   event_queue_.emplace([=]() {
     auto unit = GetUnit(dst_unit_id);
+    auto unit_2 = GetUnit(src_unit_id);
     if (unit) {
       unit->SetHealth(unit->GetHealth() - damage / unit->GetMaxHealth());
+      unit_2->SetHealth(unit_2->GetHealth() + damage / unit_2->GetMaxHealth());
       if (unit->GetHealth() <= 0.0f) {
         PushEventKillUnit(dst_unit_id, src_unit_id);
+        unit_2->SetHealth(unit_2->GetMaxHealth());
       }
     }
   });
